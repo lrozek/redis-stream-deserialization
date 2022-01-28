@@ -57,3 +57,16 @@ Caused by: java.lang.IllegalArgumentException: Value must not be null!
 https://github.com/lrozek/redis-stream-deserialization/blob/main/redis-stream-consumer/src/main/java/pl/lrozek/redis/stream/consumer/redis/configuration/RedisListenerConfiguration.java#L29
 
 Enforcing producer system, which can be written using any language / framowork should not be enforced to add `_class`. In my opinion this is an implementation leak.
+
+
+## redis UI
+
+To inspect stream content
+- open in a browser following url: `http://localhost:8001` and proceed to `I already have a database` -> `Connect to a Redis Database`
+
+![redisInsight-newDb](https://user-images.githubusercontent.com/741781/151555931-cf999249-e4c6-4217-b354-13e7ce45cd58.png)
+
+![redisInsight-streamContent](https://user-images.githubusercontent.com/741781/151555959-1388b5b4-60de-4915-ab27-801485e95c30.png)
+
+- via CLI `docker-compose exec redis redis-cli XREAD COUNT 10 STREAMS mystream 0-0`
+![cli-streamContent](https://user-images.githubusercontent.com/741781/151556112-54271556-0f92-4948-9943-b66235439c08.png)
