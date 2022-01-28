@@ -1,0 +1,9 @@
+# Ignore everything
+**
+
+# what is allowed
+!.mvn
+!mvnw
+!pom.xml
+!src/main/**
+!wait-for-it.sh
